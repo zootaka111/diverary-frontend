@@ -12,10 +12,6 @@ const HeaderContainer = styled.header`
   text-align: center;
 `
 
-const StyledDiv = styled.div`
-  font-family: 'Yu Gothic', 'YuGothic', '游ゴシック', sans-serif;
-`
-
 const Logo = styled.div`
   .logo-link {
     font-size: 24px;
@@ -88,15 +84,15 @@ const NavSub = styled.nav`
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <StyledDiv>
+      <div>
         <Logo>
           <Link to="/">
             <img src={logo} alt="DIVERARY" />
           </Link>
         </Logo>
         <div>{/* バナーの内容をここに記述 */}</div>
-      </StyledDiv>
-      <StyledDiv>
+      </div>
+      <div>
         <div>
           <span></span>
         </div>
@@ -117,7 +113,7 @@ const Header: React.FC = () => {
           </ul>
         </NavGlobal>
         <NavSub>{/* twitterのロゴリンクを記載する */}</NavSub>
-      </StyledDiv>
+      </div>
     </HeaderContainer>
   )
 }
