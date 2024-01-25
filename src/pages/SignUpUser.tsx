@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     font-family: Helvetica;
@@ -119,16 +118,18 @@ const RipplesCircle = styled.span<{ active?: boolean }>`
     background: rgba(255, 255, 255, 0.25);
 `;
 
-export const Login: React.FC = () => {
+const SignUpUser: React.FC = () => {
     const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [ripplesActive, setRipplesActive] = useState<boolean>(false);
 
-    const navigate = useNavigate();
-    const [error, setError] = useState<string | null>(null);
-
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
+    };
+
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
     };
 
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -139,18 +140,21 @@ export const Login: React.FC = () => {
         setRipplesActive(true);
 
         try {
-            // バックエンドにPOSTリクエストを送る (URLのプロトコルを追加)
-            await axios.post('http://localhost:8080/Login', {
+            // バックエンドにPOSTリクエストを送る
+            const response = await axios.post('http://localhost:8080/signup', {
                 name: name,
+                email: email,
                 password: password,
             });
-            alert('アカウントが作成されました');
-            navigate("/login");
-        } catch (error) {
-            setError('ログインできませんでした...');
-        }
 
-        setRipplesActive(false);
+            // 成功時の処理（例えば、リダイレクトなど）
+            console.log('Success:', response.data);
+        } catch (error) {
+            // エラー時の処理
+            console.error('Error:', error);
+        } finally {
+            setRipplesActive(false);
+        }
     };
 
     const handleRipplesAnimationEnd = () => {
@@ -160,8 +164,8 @@ export const Login: React.FC = () => {
     return (
         <Container>
             <HeaderGroup>
-                <Header1>Login form</Header1>
-                <Header3>diverary</Header3>
+                <Header1>Sign Up form</Header1>
+                <Header3>diveerary</Header3>
             </HeaderGroup>
             <Form>
                 <FormGroup>
@@ -171,6 +175,14 @@ export const Login: React.FC = () => {
                         onChange={handleNameChange}
                     />
                     <Label>Name</Label>
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        type="email"
+                        value={email}
+                        onChange={handleEmailChange}
+                    />
+                    <Label>Email</Label>
                 </FormGroup>
                 <FormGroup>
                     <Input
@@ -200,4 +212,4 @@ export const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default SignUpUser;
