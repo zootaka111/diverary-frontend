@@ -77,30 +77,43 @@ const NavGlobal = styled.nav`
   }
 `
 
+const NavSub = styled.nav`
+  /* twitterができたら記載 */
+`
+
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <Logo>
-        <Link to="/">
-          <img src={logo} alt="DIVERARY" />
-        </Link>
-      </Logo>
-      <NavGlobal>
-        <ul>
-          <li>
-            <Link to="/">ダイビングスポット情報検索</Link>
-          </li>
-          <li>
-            <Link to="/DivingInformation">ダイビングスポット情報</Link>
-          </li>
-          <li>
-            <Link to="/IntroductionToDiving">ダイビング入門</Link>
-          </li>
-          <li>
-            <Link to="/Login">ログイン</Link>
-          </li>
-        </ul>
-      </NavGlobal>
+      <div>
+        <Logo>
+          <Link to="/">
+            <img src={logo} alt="DIVERARY" />
+          </Link>
+        </Logo>
+        <div>{/* バナーの内容をここに記述 */}</div>
+      </div>
+      <div>
+        <div>
+          <span></span>
+        </div>
+        <NavGlobal>
+          <ul>
+            <li>
+              <Link to="/">ダイビングスポット情報検索</Link>
+            </li>
+            <li>
+              <Link to="/DivingInformation">ダイビングスポット情報</Link>
+            </li>
+            <li>
+              <Link to="/IntroductionToDiving">ダイビング入門</Link>
+            </li>
+            <li>
+              <Link to="/Login">ログイン</Link>
+            </li>
+          </ul>
+        </NavGlobal>
+        <NavSub>{/* twitterのロゴリンクを記載する */}</NavSub>
+      </div>
     </HeaderContainer>
   )
 }
