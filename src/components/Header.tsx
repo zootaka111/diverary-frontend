@@ -12,10 +12,6 @@ const HeaderContainer = styled.header`
   text-align: center;
 `
 
-const StyledDiv = styled.div`
-  font-family: 'Yu Gothic', 'YuGothic', '游ゴシック', sans-serif;
-`
-
 const Logo = styled.div`
   .logo-link {
     font-size: 24px;
@@ -81,43 +77,30 @@ const NavGlobal = styled.nav`
   }
 `
 
-const NavSub = styled.nav`
-  /* twitterができたら記載 */
-`
-
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <StyledDiv>
-        <Logo>
-          <Link to="/">
-            <img src={logo} alt="DIVERARY" />
-          </Link>
-        </Logo>
-        <div>{/* バナーの内容をここに記述 */}</div>
-      </StyledDiv>
-      <StyledDiv>
-        <div>
-          <span></span>
-        </div>
-        <NavGlobal>
-          <ul>
-            <li>
-              <Link to="/">ダイビングスポット情報検索</Link>
-            </li>
-            <li>
-              <Link to="/DivingInformation">ダイビングスポット情報</Link>
-            </li>
-            <li>
-              <Link to="/IntroductionToDiving">ダイビング入門</Link>
-            </li>
-            <li>
-              <Link to="/Login">ログイン</Link>
-            </li>
-          </ul>
-        </NavGlobal>
-        <NavSub>{/* twitterのロゴリンクを記載する */}</NavSub>
-      </StyledDiv>
+      <Logo>
+        <Link to="/">
+          <img src={logo} alt="DIVERARY" />
+        </Link>
+      </Logo>
+      <NavGlobal>
+        <ul>
+          <li>
+            <Link to="/">ダイビングスポット情報検索</Link>
+          </li>
+          <li>
+            <Link to="/DivingInformation">ダイビングスポット情報</Link>
+          </li>
+          <li>
+            <Link to="/IntroductionToDiving">ダイビング入門</Link>
+          </li>
+          <li>
+            <Link to="/Login">ログイン</Link>
+          </li>
+        </ul>
+      </NavGlobal>
     </HeaderContainer>
   )
 }
