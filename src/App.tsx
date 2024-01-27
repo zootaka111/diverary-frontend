@@ -7,19 +7,25 @@ import IntroductionToDiving from './pages/IntroductionToDiving'
 import NoMatch from './pages/NoMatch'
 import Fotter from './components/Fotteer'
 import { Header } from 'src/components/Header'
+import SignUpUser from './pages/SignUpUser'
 
 const App: React.FC = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<DivingSpotInformationSearch />} />
-        <Route path="/DivingInformation" element={<DivingInformation />} />
+        <Route
+          path="/"
+          element={<DivingSpotInformationSearch />} />
+        <Route 
+          path="/DivingInformation" 
+          element={<DivingInformation />} />
         <Route
           path="/IntroductionToDiving"
           element={<IntroductionToDiving />}
         />
         <Route path="/Login" element={<Login />} />
+        <Route path="/SignUpUser" element={<SignUpUser />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Fotter />

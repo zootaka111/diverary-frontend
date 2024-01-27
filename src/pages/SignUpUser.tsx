@@ -141,7 +141,7 @@ const SignUpUser: React.FC = () => {
 
     try {
       // バックエンドにPOSTリクエストを送る
-      const response = await axios.post('http://localhost:8080/signup', {
+      const response = await axios.post('http://localhost:8080/api/signup', {
         name: name,
         email: email,
         password: password,
@@ -165,7 +165,7 @@ const SignUpUser: React.FC = () => {
     <Container>
       <HeaderGroup>
         <Header1>Sign Up form</Header1>
-        <Header3>diveerary</Header3>
+        <Header3>diverary</Header3>
       </HeaderGroup>
       <Form>
         <FormGroup>
